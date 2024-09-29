@@ -11,4 +11,4 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to...
+I am interested in exploring data related to maternal mortality, race, and income. I think I want to analysis the connections between class-race-and healthcare treatment, but this may change. 
