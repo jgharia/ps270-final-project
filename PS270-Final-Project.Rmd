@@ -1,0 +1,24 @@
+---
+title: PS270 Final Project
+author: Jana Gharia
+description: "My final project"
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+
+## Project thoughts
+
+I am interested in exploring data related to maternal mortality, race, and income. I think I want to analysis the connections between class-race-and healthcare treatment, but this may change. 
+
+
+```{r}
+remotes::install_github("soeren-henn/ps270tutor")
+```
+
+
+## Updated Project Thoughts 
+
+I will be using data from the WI health atlas on obesity and the median household income by Wisconsin zip code. I would like to research obesity and income levels across Wisconsin counties. My research question is “How does the median income level impact the rate of obesity across Wisconsin zip codes?”. I hypothesize that in places with lower median income the rates of obesity will be higher because healthy food is expensive and quality healthcare is less available to those with lower incomes. The explanatory variable of interest is median household income. To ensure there is variation I will use a wide range of zip codes with varying median incomes– both higher and lower. My outcome variable will be obesity rate and it is measured by the Wisconsin Health atlas and averages the rates of obesity by zip code. If places with lower median income rates have higher rates of obesity my hypothesis will be supported. If places with lower median income rates have lower rates of obesity than higher median income rate areas by hypothesis will be disproven. 
