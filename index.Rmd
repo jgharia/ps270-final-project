@@ -52,3 +52,12 @@ householdincome
 ```
 
 
+```{r}
+ggplot(householdincome, aes(x = Income)) +
+  geom_histogram(binwidth = 5000, fill = "lightblue", color = "black") +
+  labs(title = "Distribution of Household Income by Zip Code",
+       x = "Household Income",
+       y = "Frequency")
+```
+This is the top 50 median incomes in Wisconsin and the bottom 50 median incomes in Wisconsin. Data was difficult to access so I was only able to access these 100 points-- that is why the distribution looks like this. If it is preferable I can try to instead find 50 random zipcodes and their median incomes but this data is difficult to access in an acessible manner. 
+
