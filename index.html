@@ -32,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","PS270-Final-Project_files/anchor-4.2.2/anchor.min.js","PS270-Final-Project_files/bowser-1.9.3/bowser.min.js","PS270-Final-Project_files/distill-2.2.21/template.v2.js","PS270-Final-Project_files/header-attrs-2.28/header-attrs.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.min.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.min.map","PS270-Final-Project_files/popper-2.6.0/popper.min.js","PS270-Final-Project_files/tippy-6.2.7/tippy-bundle.umd.min.js","PS270-Final-Project_files/tippy-6.2.7/tippy-light-border.css","PS270-Final-Project_files/tippy-6.2.7/tippy.css","PS270-Final-Project_files/tippy-6.2.7/tippy.umd.min.js","PS270-Final-Project_files/webcomponents-2.0.0/webcomponents.js","PS270-Final-Project.html"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","PS270-Final-Project_files/anchor-4.2.2/anchor.min.js","PS270-Final-Project_files/bowser-1.9.3/bowser.min.js","PS270-Final-Project_files/distill-2.2.21/template.v2.js","PS270-Final-Project_files/header-attrs-2.28/header-attrs.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.min.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.min.map","PS270-Final-Project_files/popper-2.6.0/popper.min.js","PS270-Final-Project_files/tippy-6.2.7/tippy-bundle.umd.min.js","PS270-Final-Project_files/tippy-6.2.7/tippy-light-border.css","PS270-Final-Project_files/tippy-6.2.7/tippy.css","PS270-Final-Project_files/tippy-6.2.7/tippy.umd.min.js","PS270-Final-Project_files/webcomponents-2.0.0/webcomponents.js","PS270-Final-Project.html"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1552,7 +1552,62 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <h2 id="updated-project-thoughts">Updated Project Thoughts</h2>
 <p>I will be using data from the WI health atlas on obesity and the median household income by Wisconsin zip code. I would like to research obesity and income levels across Wisconsin counties. My research question is “How does the median income level impact the rate of obesity across Wisconsin zip codes?”. I hypothesize that in places with lower median income the rates of obesity will be higher because healthy food is expensive and quality healthcare is less available to those with lower incomes. The explanatory variable of interest is median household income. To ensure there is variation I will use a wide range of zip codes with varying median incomes– both higher and lower. My outcome variable will be obesity rate and it is measured by the Wisconsin Health atlas and averages the rates of obesity by zip code. If places with lower median income rates have higher rates of obesity my hypothesis will be supported. If places with lower median income rates have lower rates of obesity than higher median income rate areas by hypothesis will be disproven.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
+<span><span class='va'>Adults_Table_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"~/Obesity+Prevalence+by+ZIP+Code+and+Gender,+Adults+and+Children/Adults-Table 1.csv"</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>Adults_Table_1</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
+<span><span class='va'>WI_Household_Income_by_Zip_1_</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"~/WI Household Income by Zip (1).csv"</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>WI_Household_Income_by_Zip_1_</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>obesityrate</span> <span class='op'>&lt;-</span> <span class='va'>Adults_Table_1</span></span>
+<span><span class='va'>householdincome</span> <span class='op'>&lt;-</span> <span class='va'>WI_Household_Income_by_Zip_1_</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>householdincome</span> </span></code></pre>
+</div>
+<pre><code># A tibble: 95 × 2
+   `Zip Code` Income
+        &lt;dbl&gt;  &lt;dbl&gt;
+ 1      53069 115568
+ 2      53122 113750
+ 3      53097 107667
+ 4      53017 106577
+ 5      53076 103000
+ 6      53045 100438
+ 7      54942 100344
+ 8      53217 100262
+ 9      53593  99578
+10      53183  99085
+# ℹ 85 more rows</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>householdincome</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Income</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>binwidth <span class='op'>=</span> <span class='fl'>5000</span>, fill <span class='op'>=</span> <span class='st'>"lightblue"</span>, color <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of Household Income by Zip Code"</span>,</span>
+<span>       x <span class='op'>=</span> <span class='st'>"Household Income"</span>,</span>
+<span>       y <span class='op'>=</span> <span class='st'>"Frequency"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<p>This is the top 50 median incomes in Wisconsin and the bottom 50 median incomes in Wisconsin. Data was difficult to access so I was only able to access these 100 points– that is why the distribution looks like this. If it is preferable I can try to instead find 50 random zipcodes and their median incomes but this data is difficult to access in an acessible manner.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
