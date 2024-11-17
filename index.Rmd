@@ -27,23 +27,35 @@ I will be using data from the WI health atlas on obesity and the median househol
 
 ```{r}
 library(readr)
-Adults_Table_1 <- read_csv("~/Obesity+Prevalence+by+ZIP+Code+and+Gender,+Adults+and+Children/Adults-Table 1.csv")
-View(Adults_Table_1)
+library(tidyverse)
+obesityrate <- read_csv("~/Obesity+Prevalence+by+ZIP+Code+and+Gender,+Adults+and+Children/Adults-Table 1.csv")
+
+#cols
+obesityrate <- obesityrate[-c(1, 4, 5,6,7,8)]
+
+#rows
+obesityrate <- obesityrate |>
+  slice(-c(1:5)) |>
+  drop_na() |>
+  rename('Zip_Code' = 1) |>
+  rename('Obesity_Prevalence' = 2)
+View(obesityrate)
 ```
 
 ```{r}
 library(readr)
-WI_Household_Income_by_Zip_1_ <- read_csv("~/WI Household Income by Zip (1).csv")
-View(WI_Household_Income_by_Zip_1_)
+
+householdincome <- read_csv("~/WI Household Income by Zip (1).csv")
+
+colnames(householdincome) <- c("Zip_Code", "Income")
+householdincome$Zip_Code <- as.character(householdincome$Zip_Code)
+householdincome$Income <- as.character(householdincome$Income)
+
+View(householdincome)
 ```
 
 ```{r}
 library(tidyverse)
-```
-
-```{r}
-obesityrate <- Adults_Table_1
-householdincome <- WI_Household_Income_by_Zip_1_
 ```
 
 
@@ -51,13 +63,34 @@ householdincome <- WI_Household_Income_by_Zip_1_
 householdincome 
 ```
 
+```{r}
+householdincome_obesityrate <- inner_join(obesityrate, householdincome)
+householdincome_obesityrate
+```
 
 ```{r}
-ggplot(householdincome, aes(x = Income)) +
-  geom_histogram(binwidth = 5000, fill = "lightblue", color = "black") +
+ggplot(householdincome_obesityrate, aes(x = Income)) +
+  geom_bar(stat= "count", fill = "lightblue", color = "black") +
   labs(title = "Distribution of Household Income by Zip Code",
        x = "Household Income",
        y = "Frequency")
 ```
 This is the top 50 median incomes in Wisconsin and the bottom 50 median incomes in Wisconsin. Data was difficult to access so I was only able to access these 100 points-- that is why the distribution looks like this. If it is preferable I can try to instead find 50 random zipcodes and their median incomes but this data is difficult to access in an acessible manner. 
 
+
+## Milestone 4 
+
+```{r}
+householdincome_obesityrate <- inner_join(obesityrate, householdincome)
+householdincome_obesityrate
+householdincome_obesityrate$Income <- as.numeric(householdincome_obesityrate$Income)
+householdincome_obesityrate$Obesity_Prevalence <- as.numeric(householdincome_obesityrate$Obesity_Prevalence)
+```
+```{r}
+ggplot(data = householdincome_obesityrate, aes(x = Income, y = Obesity_Prevalence)) +
+  geom_point(color = "blue", size = 3) + 
+  geom_smooth(method = "lm", color = "red")
+  labs(x = "Income Level", y = "Obesity Prevalence", title = "Obesity Prevalence vs Income Level") + 
+  theme_minimal() 
+```
+The graph indicates confirms my hypothesis because it indicates that there is an decrease in obesity prevalence when income increases. There are two major outliers, but when looking at the data these outliers are explained by Madison, WI. Madison is a college town so has younger healthy students that have a lower income due to their status as students. 

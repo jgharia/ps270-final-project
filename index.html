@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","PS270-Final-Project_files/anchor-4.2.2/anchor.min.js","PS270-Final-Project_files/bowser-1.9.3/bowser.min.js","PS270-Final-Project_files/distill-2.2.21/template.v2.js","PS270-Final-Project_files/header-attrs-2.28/header-attrs.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.min.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.min.map","PS270-Final-Project_files/popper-2.6.0/popper.min.js","PS270-Final-Project_files/tippy-6.2.7/tippy-bundle.umd.min.js","PS270-Final-Project_files/tippy-6.2.7/tippy-light-border.css","PS270-Final-Project_files/tippy-6.2.7/tippy.css","PS270-Final-Project_files/tippy-6.2.7/tippy.umd.min.js","PS270-Final-Project_files/webcomponents-2.0.0/webcomponents.js","PS270-Final-Project.html"]}
+  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-9-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.28/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","PS270-Final-Project_files/anchor-4.2.2/anchor.min.js","PS270-Final-Project_files/bowser-1.9.3/bowser.min.js","PS270-Final-Project_files/distill-2.2.21/template.v2.js","PS270-Final-Project_files/header-attrs-2.28/header-attrs.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.min.js","PS270-Final-Project_files/jquery-3.6.0/jquery-3.6.0.min.map","PS270-Final-Project_files/popper-2.6.0/popper.min.js","PS270-Final-Project_files/tippy-6.2.7/tippy-bundle.umd.min.js","PS270-Final-Project_files/tippy-6.2.7/tippy-light-border.css","PS270-Final-Project_files/tippy-6.2.7/tippy.css","PS270-Final-Project_files/tippy-6.2.7/tippy.umd.min.js","PS270-Final-Project_files/webcomponents-2.0.0/webcomponents.js","PS270-Final-Project.html"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1555,15 +1555,32 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
-<span><span class='va'>Adults_Table_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"~/Obesity+Prevalence+by+ZIP+Code+and+Gender,+Adults+and+Children/Adults-Table 1.csv"</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>Adults_Table_1</span><span class='op'>)</span></span></code></pre>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span><span class='va'>obesityrate</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"~/Obesity+Prevalence+by+ZIP+Code+and+Gender,+Adults+and+Children/Adults-Table 1.csv"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'>#cols</span></span>
+<span><span class='va'>obesityrate</span> <span class='op'>&lt;-</span> <span class='va'>obesityrate</span><span class='op'>[</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>4</span>, <span class='fl'>5</span>,<span class='fl'>6</span>,<span class='fl'>7</span>,<span class='fl'>8</span><span class='op'>)</span><span class='op'>]</span></span>
+<span></span>
+<span><span class='co'>#rows</span></span>
+<span><span class='va'>obesityrate</span> <span class='op'>&lt;-</span> <span class='va'>obesityrate</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice</a></span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/drop_na.html'>drop_na</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span><span class='st'>'Zip_Code'</span> <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span><span class='st'>'Obesity_Prevalence'</span> <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>obesityrate</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
-<span><span class='va'>WI_Household_Income_by_Zip_1_</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"~/WI Household Income by Zip (1).csv"</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>WI_Household_Income_by_Zip_1_</span><span class='op'>)</span></span></code></pre>
+<span></span>
+<span><span class='va'>householdincome</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"~/WI Household Income by Zip (1).csv"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>householdincome</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Zip_Code"</span>, <span class='st'>"Income"</span><span class='op'>)</span></span>
+<span><span class='va'>householdincome</span><span class='op'>$</span><span class='va'>Zip_Code</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>householdincome</span><span class='op'>$</span><span class='va'>Zip_Code</span><span class='op'>)</span></span>
+<span><span class='va'>householdincome</span><span class='op'>$</span><span class='va'>Income</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>householdincome</span><span class='op'>$</span><span class='va'>Income</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>householdincome</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
@@ -1573,33 +1590,47 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>obesityrate</span> <span class='op'>&lt;-</span> <span class='va'>Adults_Table_1</span></span>
-<span><span class='va'>householdincome</span> <span class='op'>&lt;-</span> <span class='va'>WI_Household_Income_by_Zip_1_</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>householdincome</span> </span></code></pre>
 </div>
 <pre><code># A tibble: 95 × 2
-   `Zip Code` Income
-        &lt;dbl&gt;  &lt;dbl&gt;
- 1      53069 115568
- 2      53122 113750
- 3      53097 107667
- 4      53017 106577
- 5      53076 103000
- 6      53045 100438
- 7      54942 100344
- 8      53217 100262
- 9      53593  99578
-10      53183  99085
+   Zip_Code Income
+   &lt;chr&gt;    &lt;chr&gt; 
+ 1 53069    115568
+ 2 53122    113750
+ 3 53097    107667
+ 4 53017    106577
+ 5 53076    103000
+ 6 53045    100438
+ 7 54942    100344
+ 8 53217    100262
+ 9 53593    99578 
+10 53183    99085 
 # ℹ 85 more rows</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>householdincome</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Income</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_histogram.html'>geom_histogram</a></span><span class='op'>(</span>binwidth <span class='op'>=</span> <span class='fl'>5000</span>, fill <span class='op'>=</span> <span class='st'>"lightblue"</span>, color <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>householdincome_obesityrate</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>inner_join</a></span><span class='op'>(</span><span class='va'>obesityrate</span>, <span class='va'>householdincome</span><span class='op'>)</span></span>
+<span><span class='va'>householdincome_obesityrate</span></span></code></pre>
+</div>
+<pre><code># A tibble: 95 × 3
+   Zip_Code Obesity_Prevalence Income
+   &lt;chr&gt;    &lt;chr&gt;              &lt;chr&gt; 
+ 1 53002    40.2               85478 
+ 2 53005    29.9               97202 
+ 3 53012    33.8               88844 
+ 4 53017    35.8               106577
+ 5 53018    31.0               97482 
+ 6 53021    43.4               82750 
+ 7 53045    27.2               100438
+ 8 53049    .                  83191 
+ 9 53066    .                  86343 
+10 53069    38.0               115568
+# ℹ 85 more rows</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>householdincome_obesityrate</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Income</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat<span class='op'>=</span> <span class='st'>"count"</span>, fill <span class='op'>=</span> <span class='st'>"lightblue"</span>, color <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of Household Income by Zip Code"</span>,</span>
 <span>       x <span class='op'>=</span> <span class='st'>"Household Income"</span>,</span>
 <span>       y <span class='op'>=</span> <span class='st'>"Frequency"</span><span class='op'>)</span></span></code></pre>
@@ -1607,7 +1638,46 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 <p>This is the top 50 median incomes in Wisconsin and the bottom 50 median incomes in Wisconsin. Data was difficult to access so I was only able to access these 100 points– that is why the distribution looks like this. If it is preferable I can try to instead find 50 random zipcodes and their median incomes but this data is difficult to access in an acessible manner.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="milestone-4">Milestone 4</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>householdincome_obesityrate</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>inner_join</a></span><span class='op'>(</span><span class='va'>obesityrate</span>, <span class='va'>householdincome</span><span class='op'>)</span></span>
+<span><span class='va'>householdincome_obesityrate</span></span></code></pre>
+</div>
+<pre><code># A tibble: 95 × 3
+   Zip_Code Obesity_Prevalence Income
+   &lt;chr&gt;    &lt;chr&gt;              &lt;chr&gt; 
+ 1 53002    40.2               85478 
+ 2 53005    29.9               97202 
+ 3 53012    33.8               88844 
+ 4 53017    35.8               106577
+ 5 53018    31.0               97482 
+ 6 53021    43.4               82750 
+ 7 53045    27.2               100438
+ 8 53049    .                  83191 
+ 9 53066    .                  86343 
+10 53069    38.0               115568
+# ℹ 85 more rows</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>householdincome_obesityrate</span><span class='op'>$</span><span class='va'>Income</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>householdincome_obesityrate</span><span class='op'>$</span><span class='va'>Income</span><span class='op'>)</span></span>
+<span><span class='va'>householdincome_obesityrate</span><span class='op'>$</span><span class='va'>Obesity_Prevalence</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>householdincome_obesityrate</span><span class='op'>$</span><span class='va'>Obesity_Prevalence</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>householdincome_obesityrate</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Income</span>, y <span class='op'>=</span> <span class='va'>Obesity_Prevalence</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"blue"</span>, size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, color <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span></span></code></pre>
+</div>
+<img src="index_files/figure-html5/unnamed-chunk-9-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Income Level"</span>, y <span class='op'>=</span> <span class='st'>"Obesity Prevalence"</span>, title <span class='op'>=</span> <span class='st'>"Obesity Prevalence vs Income Level"</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span> </span></code></pre>
+</div>
+<pre><code>NULL</code></pre>
+</div>
+<p>The graph indicates confirms my hypothesis because it indicates that there is an decrease in obesity prevalence when income increases. There are two major outliers, but when looking at the data these outliers are explained by Madison, WI. Madison is a college town so has younger healthy students that have a lower income due to their status as students.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
