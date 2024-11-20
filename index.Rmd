@@ -89,7 +89,7 @@ householdincome_obesityrate$Obesity_Prevalence <- as.numeric(householdincome_obe
 ```{r}
 ggplot(data = householdincome_obesityrate, aes(x = Income, y = Obesity_Prevalence)) +
   geom_point(color = "blue", size = 3) + 
-  geom_smooth(method = "lm", color = "red")
+  geom_smooth(method = "lm", color = "red") + 
   labs(x = "Income Level", y = "Obesity Prevalence", title = "Obesity Prevalence vs Income Level") + 
   theme_minimal() 
 ```
