@@ -90,12 +90,17 @@ ggplot(data = householdincome_obesityrate, aes(x = Income, y = Obesity_Prevalenc
   theme_minimal() 
 ```
 ```{r}
+library(modelsummary)
 model_regression <- lm(Obesity_Prevalence ~ Income, data = householdincome_obesityrate)
-model_regression
+modelsummary(model_regression)
+```
 
+```{r}
 p_value <- summary(model_regression)$coefficients[2, 4]
 cat(p_value)
 ```
+
+
 The plot of the main analysis above demonstrates that as the median income increases the obesity rate decreases. This was determined by conducting a linear regression analysis to examine the relationship between household income and obesity prevalence among selected Wisconsin zip codes.  
 
 The intercept of the regression model is 53.24. This means that when income is zero the predicted obesity prevalence is 53.24. The income coefficient is -000.1892. This means that for every one dollar increase in household income the obesity prevalence is predicted to decrease by .0001892. This also means that an increase in household income is predicted to mean a decrease in obesity prevalence. The p-value for the income coefficient is 5.38 x 10^-11. This makes the p-value statistically significant because it is less than 0.05, so the null hypothesis should be rejected. By rejecting the null hypothesis, there is a recognition of a statistically significant relationship between income and obesity prevalence. 
