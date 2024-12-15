@@ -7,23 +7,14 @@ output:
     self_contained: false
 ---
 
-
-
-## Project thoughts
-
-I am interested in exploring data related to maternal mortality, race, and income. I think I want to analysis the connections between class-race-and healthcare treatment, but this may change. 
-
+## Introduction 
+The research question for this study is: How does the median income level impact the rate of obesity across Wisconsin zip codes? The focus of this study was 50 zip codes with high median incomes and low median incomes. I hypothesized that in places with lower median income the rates of obesity would be higher because healthy food is both expensive and difficult to access and quality healthcare is less available to those with lower income. This research is very important because it points to the disparities that differences in income can create. Obesity has detrimental impacts on human health and if those with lower incomes are more susceptible to obesity then they may have poorer quality of life. By addressing the disparities that exist across incomes we can better understand how to approach obesity prevention in a more cohesive manner. 
 
 ```{r}
 remotes::install_github("soeren-henn/ps270tutor")
 ```
 
-
-## Updated Project Thoughts 
-
-I will be using data from the WI health atlas on obesity and the median household income by Wisconsin zip code. I would like to research obesity and income levels across Wisconsin counties. My research question is “How does the median income level impact the rate of obesity across Wisconsin zip codes?”. I hypothesize that in places with lower median income the rates of obesity will be higher because healthy food is expensive and quality healthcare is less available to those with lower incomes. The explanatory variable of interest is median household income. To ensure there is variation I will use a wide range of zip codes with varying median incomes– both higher and lower. My outcome variable will be obesity rate and it is measured by the Wisconsin Health atlas and averages the rates of obesity by zip code. If places with lower median income rates have higher rates of obesity my hypothesis will be supported. If places with lower median income rates have lower rates of obesity than higher median income rate areas by hypothesis will be disproven. 
-
-
+## Setting up the data 
 
 ```{r}
 library(readr)
@@ -58,10 +49,16 @@ View(householdincome)
 library(tidyverse)
 ```
 
-
 ```{r}
 householdincome 
 ```
+
+## Data Section
+The data for this study was drawn from two sources, the Wisconsin health atlas for the obesity data and the US census for income by Wisconsin zip code. These numbers are measured using a statistical model. The explanatory variable or independent variable in this study is median household income and the outcome variable or dependent variable is the obesity rate. The main outcome of interest is the relationship between household income and obesity prevalence.
+
+The research design in this project is cross-sectional. That is because this study is comparing these variables from a given moment in time rather than over one period of time. A cross-sectional design is useful in this study because it can help identify associations between the two variables at a single point in time. 
+
+The graph below shows the dependent or outcome variable-- obesity prevalence. The graph represents the frequency that each obesity prevalence shows up across zip codes. 
 
 ```{r}
 householdincome_obesityrate <- inner_join(obesityrate, householdincome)
@@ -69,23 +66,22 @@ householdincome_obesityrate
 ```
 
 ```{r}
-ggplot(householdincome_obesityrate, aes(x = Income)) +
-  geom_bar(stat= "count", fill = "lightblue", color = "black") +
-  labs(title = "Distribution of Household Income by Zip Code",
-       x = "Household Income",
-       y = "Frequency")
+ggplot(householdincome_obesityrate, aes(x = as.numeric(Obesity_Prevalence))) +
+  geom_histogram(binwidth = 1, fill = "lightblue", color = "black") + 
+  labs(title = "Distribution of Obesity Prevalence Across Zip Codes",
+       x = "Obesity Prevalence",
+       y = "Frequency") +
+  theme_minimal()
 ```
-This is the top 50 median incomes in Wisconsin and the bottom 50 median incomes in Wisconsin. Data was difficult to access so I was only able to access these 100 points-- that is why the distribution looks like this. If it is preferable I can try to instead find 50 random zipcodes and their median incomes but this data is difficult to access in an acessible manner. 
 
-
-## Milestone 4 
-
+## Results Section
 ```{r}
 householdincome_obesityrate <- inner_join(obesityrate, householdincome)
 householdincome_obesityrate
 householdincome_obesityrate$Income <- as.numeric(householdincome_obesityrate$Income)
 householdincome_obesityrate$Obesity_Prevalence <- as.numeric(householdincome_obesityrate$Obesity_Prevalence)
 ```
+
 ```{r}
 ggplot(data = householdincome_obesityrate, aes(x = Income, y = Obesity_Prevalence)) +
   geom_point(color = "blue", size = 3) + 
@@ -93,4 +89,23 @@ ggplot(data = householdincome_obesityrate, aes(x = Income, y = Obesity_Prevalenc
   labs(x = "Income Level", y = "Obesity Prevalence", title = "Obesity Prevalence vs Income Level") + 
   theme_minimal() 
 ```
-The graph indicates confirms my hypothesis because it indicates that there is an decrease in obesity prevalence when income increases. There are two major outliers, but when looking at the data these outliers are explained by Madison, WI. Madison is a college town so has younger healthy students that have a lower income due to their status as students. 
+```{r}
+model_regression <- lm(Obesity_Prevalence ~ Income, data = householdincome_obesityrate)
+model_regression
+
+p_value <- summary(model_regression)$coefficients[2, 4]
+cat(p_value)
+```
+The plot of the main analysis above demonstrates that as the median income increases the obesity rate decreases. This was determined by conducting a linear regression analysis to examine the relationship between household income and obesity prevalence among selected Wisconsin zip codes.  
+
+The intercept of the regression model is 53.24. This means that when income is zero the predicted obesity prevalence is 53.24. The income coefficient is -000.1892. This means that for every one dollar increase in household income the obesity prevalence is predicted to decrease by .0001892. This also means that an increase in household income is predicted to mean a decrease in obesity prevalence. The p-value for the income coefficient is 5.38 x 10^-11. This makes the p-value statistically significant because it is less than 0.05, so the null hypothesis should be rejected. By rejecting the null hypothesis, there is a recognition of a statistically significant relationship between income and obesity prevalence. 
+
+This is cross-sectional study so we are unable to draw conclusions about a causal relationship. The results of this study indicate that there is an association between income and obesity prevalence but there could be multiple other confounding variables that could impact both income and obesity. These confounding variables could include environmental factors, healthcare, and education levels. 
+
+Note: The graph confirms my hypothesis because it indicates that there is an decrease in obesity prevalence when income increases. There are two major outliers, but when looking at the data these outliers are explained by Madison, WI. Madison is a college town so has younger healthy students that have a lower income due to their status as students. 
+
+## Conclusion (confounders listed above)
+
+These findings indicate that the lower the median household income the higher the obesity rate. These findings support my hypothesis because they confirm that there is a relationship between income rate and obesity level. However, this relationship does not come without its limitations. There is an entire section of data missing from this study because the median household incomes for all incomes was not available. I was only able to freely access data of the top incomes and bottom incomes which means that there is no analysis of the middle income. Although the relationship is clear given the line of regression, it would be important to include these data points before claiming a causal relationship. With both more time and money to access the full dataset, I could improve this analysis and strengthen the overall argument by including the median income and obesity rates for the entirety of Wisconsin zip codes or at least representative zip codes from a wider variety of zip codes. 
+
+
